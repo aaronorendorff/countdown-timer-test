@@ -9,11 +9,19 @@
 
     body {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       margin: 0;
       font-family: 'Lora', serif;
       font-weight: bold;
+    }
+    #title {
+      font-family: 'Lora', serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 20px;
     }
     #demo {
       text-align: center;
@@ -36,6 +44,7 @@
   </style>
 </head>
 <body>
+  <div id="title">Time left to save today</div>
   <div id="demo"></div>
   <script>
     // Set the date we're counting down to
