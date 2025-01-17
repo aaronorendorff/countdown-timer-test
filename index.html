@@ -24,6 +24,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 3.5rem; /* Fixed width to prevent shifting */
     }
     .time-box span {
       font-size: 2rem;
@@ -52,6 +53,11 @@
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Pad single-digit values with a leading zero
+      hours = String(hours).padStart(2, '0');
+      minutes = String(minutes).padStart(2, '0');
+      seconds = String(seconds).padStart(2, '0');
 
       // Output the result in an element with id="demo"
       document.getElementById("demo").innerHTML = `
