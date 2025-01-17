@@ -15,11 +15,25 @@
     }
     #demo {
       text-align: center;
+      display: flex;
+      gap: 20px;
+    }
+    .time-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .time-box span {
+      font-size: 2rem;
+    }
+    .time-box label {
+      font-size: 1rem;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
-  <p id="demo"></p>
+  <div id="demo"></div>
   <script>
     // Set the date we're counting down to
     var countDownDate = new Date("Jan 17, 2025 23:59:59").getTime();
@@ -38,8 +52,20 @@
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       // Output the result in an element with id="demo"
-      document.getElementById("demo").innerHTML =
-        hours + "h " + minutes + "m " + seconds + "s ";
+      document.getElementById("demo").innerHTML = `
+        <div class="time-box">
+          <span>${hours}</span>
+          <label>Hours</label>
+        </div>
+        <div class="time-box">
+          <span>${minutes}</span>
+          <label>Mins</label>
+        </div>
+        <div class="time-box">
+          <span>${seconds}</span>
+          <label>Sec</label>
+        </div>
+      `;
 
       // If the count down is over, write some text
       if (distance < 0) {
